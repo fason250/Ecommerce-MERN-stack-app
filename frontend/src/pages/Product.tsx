@@ -11,10 +11,10 @@ function Product() {
   const [ productData , setProductData ] = useState<ProductType>()
   const [ mainImage ,setMainImage ] = useState<string>("")
   const [clickedSize , setClickedSize ] = useState<string>('')
-  const { productId } = useParams()
-  const { productArray,currency } = useContext(GlobalContext)
+  const { productArray,currency,addToCart } = useContext(GlobalContext)
   const containRef =useRef<HTMLElement | null>(null)
-
+  const { productId } = useParams()
+  
 
   useEffect(()=>{
     const fetchData = async()=>{
@@ -74,7 +74,7 @@ function Product() {
               }
             </div>
           </div>
-          <button className="bg-black text-white px-8 rounded-md py-3 text-sm active:bg-gray-700 uppercase">Add To Cart</button>
+          <button onClick={()=>addToCart(productData._id,clickedSize)} className="bg-black text-white px-8 rounded-md py-3 text-sm active:bg-gray-700 uppercase">Add To Cart</button>
           <hr className="mt-8 sm:w-4/5 text-gray-200"/>
           <div className="text-sm text-gray-500 mt-5 flex flex-col gap-1">
               <p>100% Original Product.</p>

@@ -5,8 +5,9 @@ import { GlobalContext } from "../context/AppContext"
 
 function Navigation() {
     const [ showMenuBar, setShowMenuBar ] = useState<boolean>(false)
-    const {setShowSearch,showSearch} = useContext(GlobalContext)
+    const {setShowSearch,showSearch, countCartItems} = useContext(GlobalContext)
     const navigate = useNavigate()
+    const cartNumber = countCartItems()
 
   return (
     <div className="flex items-center justify-between py-5 font-medium">
@@ -39,7 +40,7 @@ function Navigation() {
             </div>
             <Link to="cart" className="relative">
                 <img src={assets.cart_icon} className="w-5 min-w-5 h-5" alt="cart icon" />
-                <span className=" w-4 text-center leading-4 text-[8px] aspect-square rounded-full bg-black text-white absolute bottom-[-6px] right-[-6px]">10</span>
+                <span className=" w-4 text-center leading-4 text-[8px] aspect-square rounded-full bg-black text-white absolute bottom-[-6px] right-[-6px]">{cartNumber}</span>
             </Link>
             <img onClick={()=> setShowMenuBar(true)} src={assets.menu_icon} className="w-5 cursor-pointer sm:hidden" alt="menu icon" />
         </div>
