@@ -29,7 +29,9 @@ function Navigation() {
         <div className="flex gap-6 items-center">
             <img onClick={()=> setShowSearch(!showSearch)} className="w-5 h-5 cursor-pointer"  src={assets.search_icon} alt="search icon" />
             <div className="group relative">
-                <img className="w-5 h-5 cursor-pointer" src={assets.profile_icon} alt="profile icon" />
+                <Link to={"/login"}>
+                    <img className="w-5 h-5 cursor-pointer" src={assets.profile_icon} alt="profile icon" />
+                </Link>
                 <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
                     <div className="flex flex-col gap-2 w-36 py-3 px-2 bg-slate-100 rounded-md text-gray-700">
                         <p className="hover:text-black hover:underline cursor-pointer">My Account</p>

@@ -3,10 +3,13 @@ import { GlobalContext } from "../context/AppContext"
 import PageTitle from "../components/PageTitle"
 import { assets } from "../assets/assets"
 import { ShoppingCart } from "lucide-react"
+import CartCalculation from "../components/CartCalculation"
+import { useNavigate } from "react-router-dom"
 
 
 function Cart() {
   const { productArray , cartItems,currency ,updateQuantity,removeFromCart} = useContext(GlobalContext)
+  const navigate = useNavigate()
 
   return  (
     <section className="pt-14">
@@ -36,6 +39,7 @@ function Cart() {
                   type="number" min={1} 
                   defaultValue={item.quantity} 
                   className="border max-w-18 px-1 sm:px-2 py-1"
+                  value={item.quantity}
                   onChange={(event) => updateQuantity(item.itemId,item.size, +event.target.value)}
                   />
                 <img 
@@ -53,6 +57,14 @@ function Cart() {
       <h1 className="text-center py-4 text-2xl text-gray-600 inline-flex justify-center items-center w-full">No Item Found to your cart <ShoppingCart size={32} color="green"/> </h1>
     )
       }
+      <div className="flex justify-end my-20">
+        <div className="w-full sm:w-[450px]">
+          <CartCalculation />
+          <div className="w-full text-end">
+            <button onClick={()=> navigate("/PlaceOrder")} className="bg-black text-white my-8 py-3 px-8 text-sm rounded-md cursor-pointer active:opacity-50 transition-opacity">Proceed to payment</button>
+          </div>
+        </div>
+      </div>
     </section>
   )
 }

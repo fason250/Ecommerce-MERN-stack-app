@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useEffect, useRef, useState } from "react"
 import { useParams } from "react-router-dom"
 import { GlobalContext, type ProductType } from "../context/AppContext"

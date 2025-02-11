@@ -32,7 +32,8 @@ interface ContextDefaultValueType {
     addToCart: (itemId:string,size:string) => void;
     countCartItems:()=> number;
     updateQuantity:  (itemId: string,size: string, quantity: number) => void;
-    removeFromCart: (itemId:string,size:string) => void
+    removeFromCart: (itemId:string,size:string) => void;
+    calculateTotalCartAmount:() => number
 }
 
 // Global Context Props type
@@ -62,7 +63,8 @@ const defaultValue:ContextDefaultValueType = {
     addToCart: ()=>{},
     countCartItems: () => 0,
     updateQuantity: () => {},
-    removeFromCart: ()=>{}
+    removeFromCart: ()=>{},
+    calculateTotalCartAmount: ()=>0
 }
 export const GlobalContext = createContext<ContextDefaultValueType>(defaultValue)
 
@@ -124,6 +126,21 @@ const GlobalStateContext = ({children}:GlobalContextType) =>{
 
     }
     
+    //total cart items amount
+    const calculateTotalCartAmount = ()=>{
+        return cartItems.reduce((total,item)=>{
+            // finding the product and it's data
+            const productData = productArray.find(product => product._id === item.itemId)
+
+            if(productData){
+                const productPrice = productData.price
+                const productTotal = productPrice * item.quantity
+                return total + productTotal
+            }
+
+            return total
+        },0)
+    }
     
 
     return(
@@ -140,7 +157,8 @@ const GlobalStateContext = ({children}:GlobalContextType) =>{
             setCartItems,
             countCartItems,
             updateQuantity,
-            removeFromCart
+            removeFromCart,
+            calculateTotalCartAmount
             }}>
             {children}
         </GlobalContext.Provider>
