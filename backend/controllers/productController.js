@@ -98,7 +98,7 @@ const removeProduct = async (request, response) => {
     const { productId } = request.params;
     if (!productId)
       return response.json({
-        success: true,
+        success: false,
         msg: "Oops! the product not found",
       });
     await productModel.findOneAndDelete({ _id: productId });

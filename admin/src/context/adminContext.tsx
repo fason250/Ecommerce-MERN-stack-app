@@ -6,13 +6,15 @@ interface defaultContextValueType {
     token: string;
     setToken: (token: string) => void;
     storeToken: (token: string) => void;
+    currency: string;
 }
 
 
 const defaultContextValue: defaultContextValueType = {
     token: '',
     setToken: () => { },
-    storeToken: () => { }
+    storeToken: () => { },
+    currency: ''
 }
 
 const GlobalContext = createContext(defaultContextValue)
@@ -21,6 +23,7 @@ const GlobalContext = createContext(defaultContextValue)
 
 const GlobalState = ({ children }: { children: ReactNode }) => {
     const [token, setToken] = useState<string>(localStorage.getItem("token") ?? '')
+    const currency: string = '$'
 
     useEffect(() => {
         if (token) {
@@ -36,7 +39,7 @@ const GlobalState = ({ children }: { children: ReactNode }) => {
     }
 
     return (
-        <GlobalContext.Provider value={{ token, storeToken, setToken }}>
+        <GlobalContext.Provider value={{ token, storeToken, setToken, currency }}>
             {children}
         </GlobalContext.Provider>
     )
