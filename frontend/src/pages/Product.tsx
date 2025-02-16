@@ -98,7 +98,7 @@ function Product() {
       {/* related products */}
       <RelatedProducts category={productData.category} subCategory={productData.subCategory} />
     </section>
-  ) : <div></div>
+  ) : null
 }
 
 export default Product

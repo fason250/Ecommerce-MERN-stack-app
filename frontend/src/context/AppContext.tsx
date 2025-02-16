@@ -44,7 +44,7 @@ interface GlobalContextType {
 }
 
 // cartItems Type
-interface CartItemsType {
+export interface CartItemsType {
     itemId: string;
     size: string;
     quantity: number;
