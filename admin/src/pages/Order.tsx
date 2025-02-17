@@ -61,7 +61,7 @@ function Order() {
         const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/v1/order/orderLists`, { headers: { token: token } })
         console.log(data.result)
         if (data.success) {
-          setOrders(data.result)
+          setOrders(data.result.reverse())
         }
 
       } catch (error) {
@@ -123,7 +123,7 @@ function Order() {
               <div>
                 <p className="text-sm sm:text-[15px]">Items: {order.items.length}</p>
                 <p className="mt-3">Method: {order.paymentMethod}</p>
-                <p>Payment: {order.payment ? 'Fulfilled' : 'Pending'}</p>
+                <p>Payment: <span className={`${order.payment ? 'text-green-800 font-medium' : 'text-orange-800 font-medium'}`}>{order.payment ? 'Paid' : 'Pending'}</span></p>
                 <p>Date: {new Date(order.date).toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })}</p>
               </div>
               <p className="text-sm sm:text-[15px]">{currency} {order.amount}</p>
