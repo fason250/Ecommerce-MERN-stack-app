@@ -91,12 +91,24 @@ const placeOrderStripe = async (request, response) => {
   }
 };
 
-//placing orders using razor pay method
+// verify stripe payment
 
-const placeOrderRazorPay = async (request, response) => {
+const verifyStripePayment = async (request, response) => {
   try {
+    const {
+      body: { orderId, success, userId },
+    } = request;
+    if (success === "true") {
+      await orderModel.findByIdAndUpdate(orderId, { payment: true });
+      await userModel.findByIdAndUpdate(userId, { cartItems: [] });
+      response.json({ success: true, msg: "order paid successfully" });
+    } else {
+      await orderModel.findByIdAndDelete(orderId);
+      response.json({ success: false, msg: "payment unsuccessfully " });
+    }
   } catch (error) {
     console.log(error);
+    response.json({ success: false });
   }
 };
 
@@ -160,7 +172,7 @@ export {
   userOrders,
   updateOrderStatus,
   allOrders,
-  placeOrderRazorPay,
   placeOrderStripe,
   placeOrder,
+  verifyStripePayment,
 };

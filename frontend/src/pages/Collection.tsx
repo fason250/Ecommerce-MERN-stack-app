@@ -122,15 +122,15 @@ function Collection() {
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
             <label className="flex gap-2">
               <input type="checkbox" onChange={toggleSubCategory} className="w-3" value={'Topwear'} />
-              <span>Top Wear</span>
+              <span>Tops</span>
             </label>
             <label className="flex gap-2">
               <input type="checkbox" onChange={toggleSubCategory} className="w-3" value={'Bottomwear'} />
-              <span>Bottom Wear</span>
+              <span>Bottoms</span>
             </label>
             <label className="flex gap-2">
               <input type="checkbox" onChange={toggleSubCategory} className="w-3" value={'Winterwear'} />
-              <span>Winter Wear</span>
+              <span>OuterWear</span>
             </label>
           </div>
         </div>
@@ -141,9 +141,9 @@ function Collection() {
         <div className="flex justify-between text-base sm:text-2xl mb-4">
           <PageTitle text1="All" text2="Collections" />
           <select className="border-2 border-gray-300 text-sm px-2" onChange={handleSelected}>
-            <option value="relevant">Sort by: Relevant</option>
-            <option value="low-high">Sort by: Low to High</option>
-            <option value="high-low">Sort by: High to Low</option>
+            <option value="relevant">Sort by: Most Relevant</option>
+            <option value="low-high">Sort by: Price (Low to High)</option>
+            <option value="high-low">Sort by: Price (High to Low)</option>
           </select>
         </div>
         {/* all products */}

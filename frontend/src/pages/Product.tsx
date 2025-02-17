@@ -87,12 +87,17 @@ function Product() {
       <div className="mt-20">
         <div className="flex gap-[1px]">
           <strong className="border border-gray-300 px-5 py-3 text-sm">Description</strong>
-          <p className="border border-gray-300 px-5 py-3 text-sm">Reviews(122)</p>
+          <p className="border border-gray-300 px-5 py-3 text-sm">Reviews (122)</p>
         </div>
-        <div className="flex flex-col gap-4 border border-gray-400  p-6 text-sm text-gray-500">
-          <p>An e-commerce website is an  online platform that facilitates the buying and selling and products or services over the internet. it serves as a Virtual marketplace where businesses and  individuals can showcase their products. interact with customers and conduct transaction without the need for a physical presence. E-commerce website have gained immerse population due to their convenience accessibility and the global reach they offer. </p>
-          <p>E-commerce website typically display products or services along with detailed description images, prices and any available (e.g: sizes,colors) Each product usually has its own dedicated page with relevant information</p>
+        <div className="flex flex-col gap-6 border border-gray-300 p-8 rounded-lg shadow-lg bg-white text-sm text-gray-700">
+          <p className="leading-relaxed">
+            An e-commerce website allows buying and selling of products or services online. It serves as a virtual marketplace where businesses and individuals can showcase products, interact with customers, and complete transactions without a physical store.
+          </p>
+          <p className="leading-relaxed">
+            These websites typically display product details, images, prices, and options (e.g., sizes, colors), with each product having a dedicated page for easy purchasing.
+          </p>
         </div>
+
       </div>
 
       {/* related products */}

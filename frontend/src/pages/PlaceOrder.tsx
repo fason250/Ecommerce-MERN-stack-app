@@ -75,13 +75,14 @@ function PlaceOrder() {
           }
         })
 
+        console.log("the data from stripe ", data)
         if (data.success) {
-          const { session_url } = data
           setCartItems([])
+          const { session_url } = data
           window.location.replace(session_url)
 
         } else {
-          toast.error("failed to pay with stripe ")
+          toast.error("please log to your account first ")
         }
 
       }
@@ -125,10 +126,6 @@ function PlaceOrder() {
             <div onClick={() => setPaymentMethod('stripe')} className="flex items-center gap-3 border py-2 px-3 cursor-pointer">
               <p className={`min-w-3.5 h-3.5 border rounded-full ${paymentMethod === 'stripe' ? 'bg-green-400 border-white' : null}`}></p>
               <img src={assets.stripe_logo} alt="stripe logo" className="h-4 mx-4" />
-            </div>
-            <div onClick={() => setPaymentMethod('razor')} className="flex items-center gap-3 border py-2 px-3 cursor-pointer">
-              <p className={`min-w-3.5 h-3.5 border rounded-full ${paymentMethod === 'razor' ? 'bg-green-400 border-white' : null}`}></p>
-              <img src={assets.razorpay_logo} alt="razor pay logo" className="h-4 mx-4" />
             </div>
             <div onClick={() => setPaymentMethod('cashOnDelivery')} className="flex items-center gap-3 border py-2 px-3 cursor-pointer">
               <p className={`min-w-3.5 h-3.5 border rounded-full ${paymentMethod === 'cashOnDelivery' ? 'bg-green-400 border-white' : null}`}></p>

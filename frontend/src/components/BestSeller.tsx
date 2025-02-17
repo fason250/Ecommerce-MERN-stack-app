@@ -17,7 +17,7 @@ function BestSeller() {
         <section className="my-10">
             <div className="text-center text-3xl py-8">
                 <PageTitle text1="best" text2="sellers" />
-                <p className="w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, quisquam.</p>
+                <p className="w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600">These top-rated products have earned their spot by winning the hearts of our customers. Whether you're looking for a crowd favorite or something that’s sure to impress, our best sellers deliver on quality, style, and performance.</p>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6">

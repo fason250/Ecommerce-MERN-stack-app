@@ -19,19 +19,19 @@ function Navigation() {
 
     return (
         <div className="flex items-center justify-between py-5 font-medium">
-            <img onClick={() => navigate("/")} src={assets.logo} alt="logo image" className="w-35 cursor-pointer" />
+            <img onClick={() => navigate("/")} src={assets.logo} alt="logo image" className="w-50  cursor-pointer" />
             <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
                 <li className="text-lg font-medium capitalize">
-                    <NavLink to={"/"} className={({ isActive }) => isActive ? 'border-b-2 border-black text-pink-900' : ''}>Home</NavLink>
+                    <NavLink to={"/"} className={({ isActive }) => isActive ? 'border-b-2 border-[#949191] text-[#D4AF37]' : ''}>Home</NavLink>
                 </li>
                 <li className="text-lg font-medium capitalize">
-                    <NavLink to={"/collection"} className={({ isActive }) => isActive ? 'border-b-2 border-black text-pink-900' : ''}>Collections</NavLink>
+                    <NavLink to={"/collection"} className={({ isActive }) => isActive ? 'border-b-2 border-[#949191] text-[#D4AF37]' : ''}>Collections</NavLink>
                 </li>
                 <li className="text-lg font-medium capitalize">
-                    <NavLink to={"/About"} className={({ isActive }) => isActive ? 'border-b-2 border-black text-pink-900' : ''}>About Us</NavLink>
+                    <NavLink to={"/About"} className={({ isActive }) => isActive ? 'border-b-2 border-[#949191] text-[#D4AF37]' : ''}>About Us</NavLink>
                 </li>
                 <li className="text-lg font-medium capitalize">
-                    <NavLink to={"/Contact"} className={({ isActive }) => isActive ? 'border-b-2 border-black text-pink-900' : ''}>Contact Us</NavLink>
+                    <NavLink to={"/Contact"} className={({ isActive }) => isActive ? 'border-b-2 border-[#949191] text-[#D4AF37]' : ''}>Contact Us</NavLink>
                 </li>
             </ul>
             <div className="flex gap-6 items-center">
