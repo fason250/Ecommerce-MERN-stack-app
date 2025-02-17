@@ -7,13 +7,13 @@ import OurPolicy from "../components/OurPolicy"
 function Home() {
 
   return (
-    <>
-        <Hero />
-        <LatestCollection />
-        <BestSeller />
-        <OurPolicy />
-        <NewsLetter />
-    </>
+    <section className=" w-full min-h-screen">
+      <Hero />
+      <LatestCollection />
+      <BestSeller />
+      <OurPolicy />
+      <NewsLetter />
+    </section>
   )
 }
 
