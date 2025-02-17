@@ -10,8 +10,8 @@ import Cart from "./pages/Cart"
 import Orders from "./pages/Orders"
 import PlaceOrder from "./pages/PlaceOrder"
 import NotFound from "./pages/NotFound"
+import Verify from "./pages/VerifyStripe"
 import GlobalStateContext from "./context/AppContext"
-import Verify from "./pages/verify"
 
 function App() {
 
